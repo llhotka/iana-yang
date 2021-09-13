@@ -1,0 +1,15 @@
+* iana-yang
+This project contains XSLT stylesheets and other tools for translating IANA registries to YANG modules.
+
+** Available registries
+The following table shows YANG modules corresponding to IANA registries that can be generated using this project.
+
+| YANG module            | IANA registries                         |
+|------------------------+-----------------------------------------|
+| iana-dns-class-rr-type | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml][DNS CLASSes, Resource Record (RR) TYPEs]] |
+
+** Cloning the project
+Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is used as [[https://git-scm.com/book/en/v2/Git-Tools-Submodules][git submodule]]. In order to get the submodule initialized and cloned, this project should be cloned like so:
+#+begin_src shell
+  git clone git@github.com:llhotka/iana-yang.git --recurse-submodules
+#+end_src
