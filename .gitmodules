@@ -1,0 +1,3 @@
+[submodule "yin-tools"]
+	path = yin-tools
+	url = git@github.com:llhotka/yin-tools.git
