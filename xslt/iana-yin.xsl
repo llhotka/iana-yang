@@ -77,7 +77,7 @@
 	  <text>This version of this YANG module was generated from
 	  the corresponding IANA registr</text>
 	  <value-of select="$suffix"/>
-	  using an XSLT stylesheet from the GitHub project 'iana-yang'
+	  using an XSLT stylesheet from the 'iana-yang' project
 	  (https://github.com/llhotka/iana-yang).
 	</element>
       </element>
@@ -106,9 +106,15 @@
     <call-template name="iana-contact"/>
     <call-template name="module-description"/>
     <element name="yin:reference">
+      <variable name="url">
+	<call-template name="up-to-last">
+	  <with-param name="text" select="$iana-url"/>
+	  <with-param name="char">/</with-param>
+	</call-template>
+      </variable>
       <element name="yin:text">
 	<value-of select="concat(/iana:registry/iana:title, ' (',
-			  $iana-url, ')')"/>
+			  $url, ')')"/>
       </element>
     </element>
     <element name="yin:revision">
@@ -129,9 +135,37 @@
     <text>'</text>
   </template>
 
-  <!-- This template parses a single-space-separated list of registry
-  IDs contained in the regid parameter, and produces a list of
-  registry names for use in module description. -->
+  <!--
+      Return a prefix of 'text' up to but not including the last
+      occurence of 'char' in 'text'.
+  -->
+  <template name="up-to-last">
+    <param name="text"/>
+    <param name="char"/>
+    <param name="start" select="1"/>
+    <variable name="suffix" select="substring($text, $start)"/>
+    <choose>
+      <when test="contains($suffix, $char)">
+	<call-template name="up-to-last">
+	  <with-param name="text" select="$text"/>
+	  <with-param name="char" select="$char"/>
+	  <with-param
+	      name="start"
+	      select="$start + 1 +
+		      string-length(substring-before($suffix, $char))"/>
+	</call-template>
+      </when>
+      <otherwise>
+	<value-of select="substring($text, 1, $start - 2)"/>
+      </otherwise>
+    </choose>
+  </template>
+
+  <!--
+      Parse a single-space-separated list of registry IDs contained in
+      the regid parameter, and produce a list of registry names for
+      use in module description.
+  -->
   <template name="registry-names">
     <param name="regid"/>
     <choose>
