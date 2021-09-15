@@ -98,6 +98,11 @@
 	<value-of select="$prefix"/>
       </attribute>
     </element>
+    <element name="yin:organization">
+      <element name="yin:text">
+	Internet Assigned Numbers Authority (IANA)
+      </element>
+    </element>
     <call-template name="iana-contact"/>
     <call-template name="module-description"/>
     <element name="yin:reference">
