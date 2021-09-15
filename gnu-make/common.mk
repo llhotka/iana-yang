@@ -2,7 +2,7 @@ xslpars = --stringparam module $(MODULE) --stringparam prefix $(PREFIX) \
 	  --stringparam iana-url "$(IANA_URL)" --stringparam regid "$(REGISTRY_ID)"
 ytxslt = ../yin-tools/xslt
 
-.PHONY: all clean refresh
+.PHONY: all clean refresh validate
 
 all: $(MODULE).yang
 
@@ -13,6 +13,9 @@ $(MODULE).yinx:
 %.yang: %.yinx
 	@xsltproc $(ytxslt)/canonicalize.xsl $< | \
 	    xsltproc --output $@  $(ytxslt)/yin2yang.xsl -
+
+validate: $(MODULE).yang
+	@pyang --strict $<
 
 clean:
 	@rm -rf *.yinx *.yang
