@@ -264,8 +264,8 @@
     </element>
   </template>
 
-  <!-- Template for a standard record. -->
-  <template match="iana:record">
+  <!-- Template for a record with name encoded in 'type'. -->
+  <template match="iana:record" mode="type">
     <call-template name="enum">
       <with-param name="id" select="iana:type"/>
     </call-template>

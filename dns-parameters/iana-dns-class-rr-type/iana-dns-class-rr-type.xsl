@@ -7,7 +7,7 @@
     version="1.0">
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
-  <include href="../xslt/iana-yin.xsl"/>
+  <include href="../../xslt/iana-yin.xsl"/>
 
   <template match="iana:registry[@id='dns-parameters-2']">
     <comment>Typedefs</comment>
@@ -75,7 +75,9 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:type = 'Unassigned' or
-		    iana:type = 'Private use' or iana:type = 'Reserved')]"/>
+		    iana:type = 'Private use' or iana:type =
+		    'Reserved')]"
+	    mode="type"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
