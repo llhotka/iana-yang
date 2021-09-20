@@ -76,8 +76,7 @@
 	<apply-templates
 	    select="iana:record[not(iana:type = 'Unassigned' or
 		    iana:type = 'Private use' or iana:type =
-		    'Reserved')]"
-	    mode="type"/>
+		    'Reserved')]"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">

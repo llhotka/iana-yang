@@ -1,5 +1,7 @@
+MODULE ?= $(shell basename `pwd`)
 xslpars = --stringparam module $(MODULE) --stringparam prefix $(PREFIX) \
-	  --stringparam iana-url "$(IANA_URL)" --stringparam regid "$(REGISTRY_ID)"
+	  --stringparam iana-url "$(IANA_URL)" \
+	  --stringparam regid "$(REGISTRY_ID)"
 ytxslt = ../../yin-tools/xslt
 
 .PHONY: all clean refresh validate

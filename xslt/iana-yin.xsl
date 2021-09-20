@@ -204,10 +204,11 @@
 
   <!-- Template for a YANG enum entry  -->
   <template name="enum">
-    <param name="id"/>
+    <param name="id"
+	   select="iana:type|iana:name|iana:mnemonic"/>
     <element name="yin:enum">
       <attribute name="name">
-	<value-of select="$id"/>
+	<value-of select="normalize-space($id)"/>
       </attribute>
       <element name="yin:value">
 	<attribute name="value">
@@ -264,11 +265,9 @@
     </element>
   </template>
 
-  <!-- Template for a record with name encoded in 'type'. -->
-  <template match="iana:record" mode="type">
-    <call-template name="enum">
-      <with-param name="id" select="iana:type"/>
-    </call-template>
+  <!-- Template for a standard record with well-defined name. -->
+  <template match="iana:record">
+    <call-template name="enum"/>
   </template>
 
   <template match="iana:description">
