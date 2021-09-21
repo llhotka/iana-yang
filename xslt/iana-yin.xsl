@@ -106,15 +106,9 @@
     <call-template name="iana-contact"/>
     <call-template name="module-description"/>
     <element name="yin:reference">
-      <variable name="url">
-	<call-template name="up-to-last">
-	  <with-param name="text" select="$iana-url"/>
-	  <with-param name="char">/</with-param>
-	</call-template>
-      </variable>
       <element name="yin:text">
 	<value-of select="concat(/iana:registry/iana:title, ' (',
-			  $url, ')')"/>
+			  $iana-url, ')')"/>
       </element>
     </element>
     <element name="yin:revision">
@@ -129,38 +123,6 @@
     </element>
   </template>
 
-  <template match="iana:title">
-    <text>'</text>
-    <value-of select="."/>
-    <text>'</text>
-  </template>
-
-  <!--
-      Return a prefix of 'text' up to but not including the last
-      occurence of 'char' in 'text'.
-  -->
-  <template name="up-to-last">
-    <param name="text"/>
-    <param name="char"/>
-    <param name="start" select="1"/>
-    <variable name="suffix" select="substring($text, $start)"/>
-    <choose>
-      <when test="contains($suffix, $char)">
-	<call-template name="up-to-last">
-	  <with-param name="text" select="$text"/>
-	  <with-param name="char" select="$char"/>
-	  <with-param
-	      name="start"
-	      select="$start + 1 +
-		      string-length(substring-before($suffix, $char))"/>
-	</call-template>
-      </when>
-      <otherwise>
-	<value-of select="substring($text, 1, $start - 2)"/>
-      </otherwise>
-    </choose>
-  </template>
-
   <!--
       Parse a single-space-separated list of registry IDs contained in
       the regid parameter, and produce a list of registry names for
@@ -170,8 +132,9 @@
     <param name="regid"/>
     <choose>
       <when test="contains($regid, ' ')">
-	<apply-templates select="//iana:registry[@id=substring-before(
-				 $regid, ' ')]/iana:title"/>
+	<call-template name="quoted-title">
+	  <with-param name="rid" select="substring-before($regid, ' ')"/>
+	</call-template>
 	<variable name="cdr" select="substring-after($regid, ' ')"/>
 	<choose>
 	  <when test="contains($cdr, ' ')">
@@ -186,9 +149,17 @@
 	</call-template>
       </when>
       <otherwise>
-	<apply-templates select="//iana:registry[@id=$regid]/iana:title"/>
+	<call-template name="quoted-title">
+	  <with-param name="rid" select="$regid"/>
+	</call-template>
       </otherwise>
     </choose>
+  </template>
+
+  <template name="quoted-title">
+    <param name="rid"/>
+    <value-of
+	select="concat($sq, //iana:registry[@id=$rid]/iana:title, $sq)"/>
   </template>
 
   <template name="process-registries">
