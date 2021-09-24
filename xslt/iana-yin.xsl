@@ -15,6 +15,7 @@
   <!-- Prefix of the namespace URI -->
   <param name="base-uri">urn:ietf:params:xml:ns:yang:</param>
 
+  <variable name="nregid" select="normalize-space($regid)"/>
   <variable name="dq">"</variable>
   <variable name="sq">'</variable>
 
@@ -45,7 +46,7 @@
   <template name="module-description">
     <variable name="suffix">
       <choose>
-	<when test="contains($regid, ' ')">ies</when>
+	<when test="contains($nregid, ' ')">ies</when>
 	<otherwise>y</otherwise>
       </choose>
     </variable>
@@ -55,7 +56,7 @@
 	  <text>This YANG module translates IANA registr</text>
 	  <value-of select="concat($suffix, ' ')"/>
 	  <call-template name="registry-names">
-	    <with-param name="regid" select="normalize-space($regid)"/>
+	    <with-param name="rids" select="$nregid"/>
 	  </call-template>
 	  <text> to YANG derived types.</text>
 	</element>
@@ -129,13 +130,13 @@
       use in module description.
   -->
   <template name="registry-names">
-    <param name="regid"/>
+    <param name="rids"/>
     <choose>
-      <when test="contains($regid, ' ')">
+      <when test="contains($rids, ' ')">
 	<call-template name="quoted-title">
-	  <with-param name="rid" select="substring-before($regid, ' ')"/>
+	  <with-param name="rid" select="substring-before($rids, ' ')"/>
 	</call-template>
-	<variable name="cdr" select="substring-after($regid, ' ')"/>
+	<variable name="cdr" select="substring-after($rids, ' ')"/>
 	<choose>
 	  <when test="contains($cdr, ' ')">
 	    <text>, </text>
@@ -145,12 +146,12 @@
 	  </otherwise>
 	</choose>
 	<call-template name="registry-names">
-	  <with-param name="regid" select="$cdr"/>
+	  <with-param name="rids" select="$cdr"/>
 	</call-template>
       </when>
       <otherwise>
 	<call-template name="quoted-title">
-	  <with-param name="rid" select="$regid"/>
+	  <with-param name="rid" select="$rids"/>
 	</call-template>
       </otherwise>
     </choose>
@@ -163,12 +164,12 @@
   </template>
 
   <template name="process-registries">
-    <param name="regid"/>
-    <if test="string-length($regid) &gt; 0">
+    <param name="rids"/>
+    <if test="string-length($rids) &gt; 0">
       <apply-templates select="//iana:registry[
-			       @id=substring-before($regid, ' ')]"/>
+			       @id=substring-before($rids, ' ')]"/>
       <call-template name="process-registries">
-	<with-param name="regid" select="substring-after($regid, ' ')"/>
+	<with-param name="rids" select="substring-after($rids, ' ')"/>
       </call-template>
     </if>
   </template>
@@ -230,8 +231,7 @@
       </attribute>
       <call-template name="module-intro"/>
       <call-template name="process-registries">
-	<with-param name="regid"
-		    select="concat(normalize-space($regid), ' ')"/>
+	<with-param name="rids" select="concat($nregid, ' ')"/>
       </call-template>
     </element>
   </template>
