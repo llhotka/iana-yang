@@ -178,13 +178,18 @@
   <template name="enum">
     <param name="id"
 	   select="iana:type|iana:name|iana:mnemonic"/>
+    <param name="value" select="iana:value"/>
+    <param name="description" select="iana:description"/>
+    <param name="refs">
+      <call-template name="process-xrefs"/>
+    </param>
     <element name="yin:enum">
       <attribute name="name">
 	<value-of select="normalize-space($id)"/>
       </attribute>
       <element name="yin:value">
 	<attribute name="value">
-	  <value-of select="iana:value"/>
+	  <value-of select="$value"/>
 	</attribute>
       </element>
       <if test="contains(iana:description, 'OBSOLETE')">
@@ -192,8 +197,20 @@
 	  <attribute name="value">obsolete</attribute>
 	</element>
       </if>
-      <apply-templates select="iana:description"/>
-      <call-template name="process-xrefs"/>
+      <if test="$description">
+	<element name="yin:description">
+	  <element name="yin:text">
+	    <value-of select="$description"/>
+	  </element>
+	</element>
+      </if>
+      <if test="$refs">
+	<element name="yin:reference">
+	  <element name="yin:text">
+	    <copy-of select="$refs"/>
+	  </element>
+	</element>
+      </if>
     </element>
   </template>
 
@@ -201,26 +218,22 @@
   <template name="process-xrefs">
     <variable name="xrefs" select="iana:xref[@type != 'note']"/>
     <if test="$xrefs">
-      <element name="yin:reference">
-	<element name="yin:text">
-	  <choose>
-	    <when test="count($xrefs) &gt; 1">
-	      <element name="html:ul">
-		<for-each select="$xrefs">
-		  <element name="html:li">
-		    <apply-templates select="."/>
-		  </element>
-		</for-each>
+      <choose>
+	<when test="count($xrefs) &gt; 1">
+	  <element name="html:ul">
+	    <for-each select="$xrefs">
+	      <element name="html:li">
+		<apply-templates select="."/>
 	      </element>
-	    </when>
-	    <otherwise>
-	      <element name="html:p">
-		<apply-templates select="$xrefs"/>
-	      </element>
-	    </otherwise>
-	  </choose>
-	</element>
-      </element>
+	    </for-each>
+	  </element>
+	</when>
+	<otherwise>
+	  <element name="html:p">
+	    <apply-templates select="$xrefs"/>
+	  </element>
+	</otherwise>
+      </choose>
     </if>
   </template>
 
@@ -239,14 +252,6 @@
   <!-- Template for a standard record with well-defined name. -->
   <template match="iana:record">
     <call-template name="enum"/>
-  </template>
-
-  <template match="iana:description">
-    <element name="yin:description">
-      <element name="yin:text">
-	<value-of select="."/>
-      </element>
-    </element>
   </template>
 
   <template match="iana:xref">
