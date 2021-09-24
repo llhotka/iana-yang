@@ -177,8 +177,9 @@
   <!-- Template for a YANG enum entry  -->
   <template name="enum">
     <param name="id"
-	   select="iana:type|iana:name|iana:mnemonic"/>
-    <param name="value" select="iana:value"/>
+	   select="normalize-space(iana:type|iana:name|iana:mnemonic)"/>
+    <param name="value"
+	   select="normalize-space(iana:value|iana:number)"/>
     <param name="description">
       <element name="html:p">
 	<value-of select="iana:description"/>
