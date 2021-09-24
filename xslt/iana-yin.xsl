@@ -179,7 +179,11 @@
     <param name="id"
 	   select="iana:type|iana:name|iana:mnemonic"/>
     <param name="value" select="iana:value"/>
-    <param name="description" select="iana:description"/>
+    <param name="description">
+      <element name="html:p">
+	<value-of select="iana:description"/>
+      </element>
+    </param>
     <param name="refs">
       <call-template name="process-xrefs"/>
     </param>
@@ -200,7 +204,7 @@
       <if test="$description">
 	<element name="yin:description">
 	  <element name="yin:text">
-	    <value-of select="$description"/>
+	    <copy-of select="$description"/>
 	  </element>
 	</element>
       </if>
