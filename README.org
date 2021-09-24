@@ -7,6 +7,7 @@ The following table shows YANG modules corresponding to IANA registries that can
 | YANG module            | IANA registries                         |
 |------------------------+-----------------------------------------|
 | [[file:dns-parameters/iana-dns-class-rr-type][iana-dns-class-rr-type]] | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-2][DNS CLASSes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4][Resource Record (RR) TYPEs]] |
+| [[file:dns-parameters/iana-dns-opcode-rcode][iana-dns-opcode-rcode]]  | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-5][DNS OpCodes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6][DNS RCODEs]]                 |
 | [[file:dns-parameters/iana-dns-zonemd][iana-dns-zonemd]]        | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#zonemd-schemes][ZONEMD Schemes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#zonemd-hash-algorithms][ZONEMD Hash Algorithms]]  |
 
 ** Cloning the project
