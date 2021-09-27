@@ -197,11 +197,18 @@
 	  <value-of select="$value"/>
 	</attribute>
       </element>
-      <if test="contains(iana:description, 'OBSOLETE')">
-	<element name="yin:status">
-	  <attribute name="value">obsolete</attribute>
-	</element>
-      </if>
+      <choose>
+	<when test="contains(iana:description, 'deprecated')">
+	  <element name="yin:status">
+	    <attribute name="value">deprecated</attribute>
+	  </element>
+	</when>
+	<when test="contains(iana:description, 'OBSOLETE')">
+	  <element name="yin:status">
+	    <attribute name="value">obsolete</attribute>
+	  </element>
+	</when>
+      </choose>
       <if test="$description">
 	<element name="yin:description">
 	  <element name="yin:text">
@@ -221,7 +228,7 @@
 
   <!-- Process references of an IANA record -->
   <template name="process-xrefs">
-    <variable name="xrefs" select="iana:xref[@type != 'note']"/>
+    <param name="xrefs" select="iana:xref[@type != 'note']"/>
     <if test="$xrefs">
       <choose>
 	<when test="count($xrefs) &gt; 1">
