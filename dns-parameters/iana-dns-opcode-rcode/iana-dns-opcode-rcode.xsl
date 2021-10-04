@@ -127,7 +127,7 @@
 	<with-param name="value">9</with-param>
 	<with-param name="description">
 	  <html:p>This RCODE has two meanings depending on the
-	  context:</html:p>
+	  context:
 	  <html:ul>
 	    <html:li>Not Authoritative - if it appears as the RCODE in
 	    the header of a DNS response without a TSIG RR or with a
@@ -135,7 +135,7 @@
 	    <html:li>Not Authorized - if it appears as the RCODE in the
 	    header of a DNS response that includes a TSIG RR with a
 	    non-zero error field.</html:li>
-	  </html:ul>
+	  </html:ul></html:p>
 	</with-param>
 	<with-param name="refs">
 	  <html:ul>
@@ -155,13 +155,13 @@
 	<with-param name="id">BADVERS-BADSIG</with-param>
 	<with-param name="value">16</with-param>
 	<with-param name="description">
-	  <html:p>This RCODE was accidentally assigned twice:</html:p>
+	  <html:p>This RCODE was accidentally assigned twice:
 	  <html:ul>
 	    <html:li>in an OPT RR it means 'Bad OPT Version'
 	    (BADVERS)</html:li>
 	    <html:li>in an TSIG RR it means 'TSIG Signature Failure'
 	    (BADSIG).</html:li>
-	  </html:ul>
+	  </html:ul></html:p>
 	</with-param>
 	<with-param name="refs">
 	  <html:ul>
