@@ -23,6 +23,11 @@ The tables in the following subsections show YANG modules that can be generated 
 |------------------------+--------------------------------|
 | [[file:dns-sec-alg-numbers/iana-dnssec-algorithms][iana-dnssec-algorithms]] | [[https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml#dns-sec-alg-numbers-1][DNS Security Algorithm Numbers]] |
 
+*** DNS-Based Authentication of Named Entities (DANE) Parameters
+| YANG module    | IANA registries                                              |
+|----------------+--------------------------------------------------------------|
+| [[file:dane-parameters/iana-dane-tlsa][iana-dane-tlsa]] | [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#certificate-usages][TLSA Certificate Usages]], [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#selectors][TLSA Selectors]], [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#matching-types][TLSA Matching Types]] |
+
 ** Cloning the project
 Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is used as [[https://git-scm.com/book/en/v2/Git-Tools-Submodules][git submodule]]. In order to get the submodule initialized and cloned, this project should be cloned like so:
 #+begin_src shell
