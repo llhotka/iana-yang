@@ -2,7 +2,6 @@ MODULE ?= $(shell basename `pwd`)
 ytxslt = ../../yin-tools/xslt
 
 .PHONY: all clean orgrow refresh validate $(MODULE).yinx
-.INTERMEDIATE: $(MODULE).yinx
 
 all: $(MODULE).yang
 
