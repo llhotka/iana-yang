@@ -177,7 +177,8 @@
   <!-- Template for a YANG enum entry  -->
   <template name="enum">
     <param name="id"
-	   select="normalize-space(iana:type|iana:name|iana:mnemonic)"/>
+	   select="normalize-space(iana:type|iana:name|iana:mnemonic|
+		   iana:acronym)"/>
     <param name="value"
 	   select="normalize-space(iana:value|iana:number)"/>
     <param name="description">
