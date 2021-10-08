@@ -10,6 +10,7 @@
   <include href="../../xslt/iana-yin.xsl"/>
 
   <template match="iana:registry[@id='zonemd-schemes']">
+    <comment>Typedefs</comment>
     <element name="yin:typedef">
       <attribute name="name">zonemd-scheme-name</attribute>
       <element name="yin:type">
