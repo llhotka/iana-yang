@@ -4,13 +4,19 @@ This project contains XSLT stylesheets and other tools for translating IANA regi
 ** Available registries
 The tables in the following subsections show YANG modules that can be generated using this project from corresponding to IANA registries.
 
-#+INCLUDE: "dns-parameters/dns-parameters.org"
-
-*** Domain Name System Security (DNSSEC) Algorithm Numbers
+*** Domain Name System (DNS) Parameters
 
 | YANG module            | IANA registries                         |
 |------------------------+-----------------------------------------|
+| [[file:dns-parameters/iana-dns-class-rr-type][iana-dns-class-rr-type]] | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-2][DNS CLASSes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-4][Resource Record (RR) TYPEs]] |
+| [[file:dns-parameters/iana-dns-opcode-rcode][iana-dns-opcode-rcode]]  | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-5][DNS OpCodes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6][DNS RCODEs]]                 |
+| [[file:dns-parameters/iana-dns-zonemd][iana-dns-zonemd]]        | [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#zonemd-schemes][ZONEMD Schemes]], [[https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#zonemd-hash-algorithms][ZONEMD Hash Algorithms]]  |
 
+*** Domain Name System Security (DNSSEC) Algorithm Numbers
+
+| YANG module            | IANA registries                |
+|------------------------+--------------------------------|
+| [[file:dns-sec-alg-numbers/iana-dnssec-algorithms][iana-dnssec-algorithms]] | [[https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml#dns-sec-alg-numbers-1][DNS Security Algorithm Numbers]] |
 
 ** Cloning the project
 Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is used as [[https://git-scm.com/book/en/v2/Git-Tools-Submodules][git submodule]]. In order to get the submodule initialized and cloned, this project should be cloned like so:
