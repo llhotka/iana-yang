@@ -188,6 +188,10 @@
     <param name="refs">
       <call-template name="process-xrefs"/>
     </param>
+    <param name="deprecated"
+	   select="contains(iana:description, 'deprecated')"/>
+    <param name="obsolete"
+	   select="contains(iana:description, 'OBSOLETE')"/>
     <element name="yin:enum">
       <attribute name="name">
 	<value-of select="normalize-space($id)"/>
@@ -198,12 +202,12 @@
 	</attribute>
       </element>
       <choose>
-	<when test="contains(iana:description, 'deprecated')">
+	<when test="$deprecated">
 	  <element name="yin:status">
 	    <attribute name="value">deprecated</attribute>
 	  </element>
 	</when>
-	<when test="contains(iana:description, 'OBSOLETE')">
+	<when test="$obsolete">
 	  <element name="yin:status">
 	    <attribute name="value">obsolete</attribute>
 	  </element>
