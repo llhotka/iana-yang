@@ -3,6 +3,11 @@ This project contains XSLT stylesheets and other tools for translating IANA regi
 
 ** Available registries
 The tables in the following subsections show YANG modules that can be generated using this project from corresponding to IANA registries.
+*** Protocol Numbers
+
+| YANG module             | IANA registries                    |
+|-------------------------+------------------------------------|
+| [[file:protocol-numbers/iana-internet-protocols][iana-internet-protocols]] | [[https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1][Assigned Internet Protocol Numbers]] |
 
 *** Domain Name System (DNS) Parameters
 

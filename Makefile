@@ -1,6 +1,6 @@
 # Generate YANG modules for all registries
 
-categories := dns-parameters dns-sec-alg-numbers
+categories := dns-parameters dns-sec-alg-numbers protocol-numbers
 subdirs := $(wildcard $(addsuffix /*, $(categories)))
 
 .PHONY: all $(subdirs)
