@@ -7,7 +7,7 @@
     version="1.0">
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
-  <include href="../../xslt/iana-yin.xsl"/>
+  <include href="../../../xslt/iana-yin.xsl"/>
 
   <!-- Replace REGISTRY-ID with the the value specified in the 'id'
        attribute of the <registry> element. -->

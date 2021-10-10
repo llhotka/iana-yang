@@ -7,95 +7,90 @@
     version="1.0">
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
-  <include href="../../xslt/iana-yin.xsl"/>
+  <include href="../../../xslt/iana-yin.xsl"/>
 
-  <template match="iana:registry[@id='dns-sec-alg-numbers-1']">
+  <template match="iana:registry[@id='protocol-numbers-1']">
     <comment>Typedefs</comment>
     <element name="yin:typedef">
-      <attribute name="name">algorithm-name</attribute>
+      <attribute name="name">protocol-name</attribute>
       <element name="yin:type">
 	<attribute name="name">enumeration</attribute>
+	<!-- IPTM has to be excluded because its number collides with
+	     TTP. -->
 	<apply-templates
 	    select="iana:record[iana:description != 'Unassigned' and
-                    iana:description != 'Reserved']"
-	    mode="dnssec-alg"/>
+                    iana:name != 'Reserved' and iana:name != 'IPTM']"
+	    mode="internet-protocol"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
           This enumeration type defines mnemonic names and
-	  corresponding numeric values of DNSSEC algorithms.
+	  corresponding numeric values of Internet protocols.
 	</element>
       </element>
       <element name="yin:reference">
 	<element name="yin:text">
 	  <html:ul>
-	    <html:li>RFC 3755: Legacy Resolver Compatibility for
-	    Delegation Signer (DS)</html:li>
-	    <html:li>RFC 4034: Resource Records for the DNS Security
-	    Extensions</html:li>
-	    <html:li>RFC 6014: Cryptographic Algorithm Identifier
-	    Allocation for DNSSEC</html:li>
-	    <html:li>RFC 6944: Applicability Statement: DNS Security
-	    (DNSSEC) DNSKEY Algorithm Implementation Status</html:li>
+	    <html:li>RFC 5237: IANA Allocation Guidelines for the
+	    Protocol Field</html:li>
+	    <html:li>RFC 7045: Transmission and Processing of IPv6
+	    Extension Headers</html:li>
 	  </html:ul>
 	</element>
       </element>
     </element>
     <element name="yin:typedef">
-      <attribute name="name">algorithm</attribute>
+      <attribute name="name">protocol</attribute>
       <element name="yin:type">
 	<attribute name="name">union</attribute>
 	<element name="yin:type">
 	  <attribute name="name">uint8</attribute>
 	</element>
 	<element name="yin:type">
-	  <attribute name="name">algorithm-name</attribute>
+	  <attribute name="name">protocol-name</attribute>
 	</element>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
-          This type allows reference to a DNSSEC algorithm using
+          This type allows reference to an Internet protocol using
           either the assigned mnemonic name or numeric value.
 	</element>
       </element>
     </element>
   </template>
 
-  <template match="iana:record" mode="dnssec-alg">
+  <template match="iana:record" mode="internet-protocol">
     <call-template name="enum">
+      <with-param name="id">
+	<choose>
+	  <when test="contains(iana:name, ' ')">
+	    <value-of select="substring-before(iana:name, ' ')"/>
+	  </when>
+	  <otherwise>
+	    <value-of select="iana:name"/>
+	  </otherwise>
+	</choose>
+      </with-param>
       <with-param name="description">
 	<element name="html:p">
 	  <value-of select="concat(iana:description, '.')"/>
 	</element>
-	<element name="html:p">
-	  <text>Usability:</text>
-	  <element name="html:ul">
-	    <element name="html:li">
-	      <text>zone signing: </text>
-	      <choose>
-		<when test="iana:signing = 'Y'">YES</when>
-		<when test="iana:signing = 'N'">NO</when>
-	      </choose>
-	    </element>
-	    <element name="html:li">
-	      <text>transaction security: </text>
-	      <choose>
-		<when test="iana:transsec = 'Y'">YES</when>
-		<when test="iana:transsec = 'N'">NO</when>
-		<when test="iana:transsec = '*'">not determined</when>
-	      </choose>
-	    </element>
+	<if test="iana:ipv6 = 'Y'">
+	  <element name="html:p">
+	    This entry is also an IPv6 Extension Header Type.
 	  </element>
-	</element>
+	</if>
       </with-param>
       <with-param name="refs">
 	<call-template name="process-xrefs">
 	  <with-param
 	      name="xrefs"
 	      select="iana:xref[@type = 'rfc' or
-		      @type = 'text' and . != 'proposed standard']"/>
+		      @type = 'text' or @type = 'person']"/>
 	</call-template>
       </with-param>
+      <with-param name="deprecated"
+		  select="contains(iana:name, '(deprecated)')"/>
     </call-template>
   </template>
 

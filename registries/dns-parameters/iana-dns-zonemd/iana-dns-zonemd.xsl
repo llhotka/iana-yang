@@ -7,7 +7,7 @@
     version="1.0">
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
-  <include href="../../xslt/iana-yin.xsl"/>
+  <include href="../../../xslt/iana-yin.xsl"/>
 
   <template match="iana:registry[@id='zonemd-schemes']">
     <comment>Typedefs</comment>

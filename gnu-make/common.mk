@@ -1,5 +1,5 @@
 MODULE ?= $(shell basename `pwd`)
-ytxslt = ../../yin-tools/xslt
+ytxslt = ../../../yin-tools/xslt
 
 .PHONY: all clean orgrow refresh validate $(MODULE).yinx
 
@@ -26,7 +26,7 @@ orgrow:
 	        --stringparam iana-url "$(IANA_URL)" \
 	        --stringparam category "$(shell basename $(dir $(shell pwd)))" \
 	        --stringparam regid "$(REGISTRY_ID)" \
-		../../xslt/org-table-row.xsl -
+		../../../xslt/org-table-row.xsl -
 
 clean:
 	@rm -rf *.yinx *.yang
