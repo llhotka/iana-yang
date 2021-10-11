@@ -28,6 +28,11 @@ The tables in the following subsections show YANG modules that can be generated 
 |----------------+--------------------------------------------------------------|
 | [[file:registries/dane-parameters/iana-dane-tlsa][iana-dane-tlsa]] | [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#certificate-usages][TLSA Certificate Usages]], [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#selectors][TLSA Selectors]], [[https://www.iana.org/assignments/dane-parameters/dane-parameters.xhtml#matching-types][TLSA Matching Types]] |
 
+*** Secret Key Transaction Authentication for DNS (TSIG) Algorithm Names
+| YANG module          | IANA registries      |
+|----------------------+----------------------|
+| [[file:registries/tsig-algorithm-names/iana-tsig-algorithms][iana-tsig-algorithms]] | [[https://www.iana.org/assignments/tsig-algorithm-names/tsig-algorithm-names.xhtml#tsig-algorithm-names-1][TSIG Algorithm Names]] |
+
 ** Cloning the project
 Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is used as [[https://git-scm.com/book/en/v2/Git-Tools-Submodules][git submodule]]. In order to get the submodule initialized and cloned, this project should be cloned like so:
 #+begin_src shell
