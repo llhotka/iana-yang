@@ -44,8 +44,8 @@
 
   <template match="/">
     <text>| [[file:</text>
-    <value-of select="concat($category, '/', $module, '][', $module)"/>
-    <text>]] | </text>
+    <value-of select="concat('registries/', $category, '/',
+		      $module, '][', $module, ']] | ')"/>
     <call-template name="registry-links">
       <with-param name="regid" select="$regid"/>
     </call-template>
