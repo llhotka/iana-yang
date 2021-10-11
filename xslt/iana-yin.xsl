@@ -197,11 +197,13 @@
       <attribute name="name">
 	<value-of select="normalize-space($id)"/>
       </attribute>
-      <element name="yin:value">
-	<attribute name="value">
-	  <value-of select="$value"/>
-	</attribute>
-      </element>
+      <if test="$value">
+	<element name="yin:value">
+	  <attribute name="value">
+	    <value-of select="$value"/>
+	  </attribute>
+	</element>
+      </if>
       <choose>
 	<when test="$deprecated">
 	  <element name="yin:status">
