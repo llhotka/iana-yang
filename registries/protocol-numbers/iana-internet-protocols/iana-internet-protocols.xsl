@@ -10,7 +10,6 @@
   <strip-space elements="*"/>
 
   <template match="iana:registry[@id='protocol-numbers-1']">
-    <comment>Typedefs</comment>
     <element name="yin:typedef">
       <attribute name="name">protocol-name</attribute>
       <element name="yin:type">

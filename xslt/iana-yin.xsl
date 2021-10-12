@@ -124,6 +124,12 @@
     </element>
   </template>
 
+  <!-- This template is intended for YANG statements to be inserted
+       before the output registry processing; may be overriden. -->
+  <template name="prolog">
+    <comment>Typedefs</comment>
+  </template>
+
   <!--
       Parse a single-space-separated list of registry IDs contained in
       the regid parameter, and produce a list of registry names for
@@ -262,6 +268,7 @@
 	<value-of select="$module"/>
       </attribute>
       <call-template name="module-intro"/>
+      <call-template name="prolog"/>
       <call-template name="process-registries">
 	<with-param name="rids" select="concat($nregid, ' ')"/>
       </call-template>

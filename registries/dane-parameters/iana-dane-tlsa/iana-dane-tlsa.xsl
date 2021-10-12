@@ -10,7 +10,6 @@
   <strip-space elements="*"/>
 
   <template match="iana:registry[@id='certificate-usages']">
-    <comment>Typedefs</comment>
     <element name="yin:typedef">
       <attribute name="name">certificate-usage-name</attribute>
       <element name="yin:type">

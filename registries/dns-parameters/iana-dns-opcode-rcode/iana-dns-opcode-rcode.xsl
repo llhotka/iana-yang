@@ -10,7 +10,6 @@
   <strip-space elements="*"/>
 
   <template match="iana:registry[@id='dns-parameters-5']">
-    <comment>Typedefs</comment>
     <element name="yin:typedef">
       <attribute name="name">opcode-name</attribute>
       <element name="yin:type">

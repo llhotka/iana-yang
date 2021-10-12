@@ -10,7 +10,6 @@
   <strip-space elements="*"/>
 
   <template match="iana:registry[@id='tsig-algorithm-names-1']">
-    <comment>Typedefs</comment>
     <element name="yin:typedef">
       <attribute name="name">tsig-algorithm-name</attribute>
       <element name="yin:type">
