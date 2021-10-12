@@ -5,9 +5,9 @@
     xmlns:iana="http://www.iana.org/assignments"
     xmlns:yin="urn:ietf:params:xml:ns:yang:yin:1"
     version="1.0">
+  <import href="../../../xslt/iana-yin.xsl"/>
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
-  <include href="../../../xslt/iana-yin.xsl"/>
 
   <template match="iana:registry[@id='dns-parameters-5']">
     <comment>Typedefs</comment>
