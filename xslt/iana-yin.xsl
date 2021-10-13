@@ -201,7 +201,7 @@
 	   select="contains(iana:description, 'OBSOLETE')"/>
     <element name="yin:enum">
       <attribute name="name">
-	<value-of select="normalize-space($id)"/>
+	<value-of select="$id"/>
       </attribute>
       <if test="$value">
 	<element name="yin:value">
@@ -210,18 +210,64 @@
 	  </attribute>
 	</element>
       </if>
-      <choose>
-	<when test="$deprecated">
-	  <element name="yin:status">
-	    <attribute name="value">deprecated</attribute>
+      <if test="$deprecated or $obsolete">
+	<element name="yin:status">
+	  <attribute name="value">
+	    <choose>
+	      <when test="$deprecated">deprecated</when>
+	      <otherwise>obsolete</otherwise>
+	    </choose>
+	  </attribute>
+	</element>
+      </if>
+      <if test="$description">
+	<element name="yin:description">
+	  <element name="yin:text">
+	    <copy-of select="$description"/>
 	  </element>
-	</when>
-	<when test="$obsolete">
-	  <element name="yin:status">
-	    <attribute name="value">obsolete</attribute>
+	</element>
+      </if>
+      <if test="$refs">
+	<element name="yin:reference">
+	  <element name="yin:text">
+	    <copy-of select="$refs"/>
 	  </element>
-	</when>
-      </choose>
+	</element>
+      </if>
+    </element>
+  </template>
+
+  <!-- Template for a YANG identity entry  -->
+  <template name="identity">
+    <param name="id" select="normalize-space(iana:name)"/>
+    <param name="base"/>
+    <param name="description"/>
+    <param name="refs">
+      <call-template name="process-xrefs"/>
+    </param>
+    <param name="deprecated" select="false()"/>
+    <param name="obsolete" select="false()"/>
+    <element name="yin:identity">
+      <attribute name="name">
+	<value-of select="$id"/>
+      </attribute>
+      <if test="$base">
+	<element name="yin:base">
+	  <attribute name="name">
+	    <value-of select="$base"/>
+	  </attribute>
+	</element>
+      </if>
+      <if test="$deprecated or $obsolete">
+	<element name="yin:status">
+	  <attribute name="value">
+	    <choose>
+	      <when test="$deprecated">deprecated</when>
+	      <otherwise>obsolete</otherwise>
+	    </choose>
+	  </attribute>
+	</element>
+      </if>
       <if test="$description">
 	<element name="yin:description">
 	  <element name="yin:text">
