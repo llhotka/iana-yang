@@ -14,7 +14,7 @@
       <attribute name="name">tsig-algorithm-name</attribute>
       <element name="yin:type">
 	<attribute name="name">enumeration</attribute>
-	<apply-templates select="iana:record" mode="tsig-alg"/>
+	<apply-templates select="iana:record"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -30,7 +30,7 @@
     </element>
   </template>
 
-  <template match="iana:record" mode="tsig-alg">
+  <template match="iana:record">
     <call-template name="enum">
       <with-param name="value"/>
       <with-param

@@ -275,8 +275,8 @@
     </element>
   </template>
 
-  <!-- Template for a standard record with well-defined name. -->
-  <template match="iana:record">
+  <!-- Template for a standard IANA record that maps to an enum. -->
+  <template match="iana:record" mode="enum">
     <call-template name="enum"/>
   </template>
 

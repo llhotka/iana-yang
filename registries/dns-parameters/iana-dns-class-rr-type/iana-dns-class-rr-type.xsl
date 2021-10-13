@@ -16,8 +16,7 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:description = 'Unassigned' or
-                    starts-with(iana:description, 'Reserved'))]"
-	    mode="dns-class"/>
+                    starts-with(iana:description, 'Reserved'))]"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -51,7 +50,7 @@
     </element>
   </template>
 
-  <template match="iana:record" mode="dns-class">
+  <template match="iana:record">
     <call-template name="enum">
       <with-param name="id">
 	<choose>
@@ -75,7 +74,8 @@
 	<apply-templates
 	    select="iana:record[not(iana:type = 'Unassigned' or
 		    iana:type = 'Private use' or iana:type =
-		    'Reserved')]"/>
+		    'Reserved')]"
+	    mode="enum"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">

@@ -16,8 +16,7 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[iana:description != 'Unassigned' and
-                    iana:description != 'Reserved']"
-	    mode="dnssec-alg"/>
+                    iana:description != 'Reserved']"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -60,7 +59,7 @@
     </element>
   </template>
 
-  <template match="iana:record" mode="dnssec-alg">
+  <template match="iana:record">
     <call-template name="enum">
       <with-param name="description">
 	<element name="html:p">

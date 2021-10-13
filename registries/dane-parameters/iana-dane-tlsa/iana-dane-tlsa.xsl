@@ -16,7 +16,8 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:description = 'Unassigned' or
-		    starts-with(iana:description, 'Reserved'))]"/>
+		    starts-with(iana:description, 'Reserved'))]"
+	    mode="enum"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -66,7 +67,8 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:description = 'Unassigned' or
-		    starts-with(iana:description, 'Reserved'))]"/>
+		    starts-with(iana:description, 'Reserved'))]"
+	    mode="enum"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -116,7 +118,8 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:description = 'Unassigned' or
-		    starts-with(iana:description, 'Reserved'))]"/>
+		    starts-with(iana:description, 'Reserved'))]"
+	    mode="enum"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">

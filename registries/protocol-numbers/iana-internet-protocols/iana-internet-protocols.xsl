@@ -18,8 +18,7 @@
 	     TTP. -->
 	<apply-templates
 	    select="iana:record[iana:description != 'Unassigned' and
-                    iana:name != 'Reserved' and iana:name != 'IPTM']"
-	    mode="internet-protocol"/>
+                    iana:name != 'Reserved' and iana:name != 'IPTM']"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -58,7 +57,7 @@
     </element>
   </template>
 
-  <template match="iana:record" mode="internet-protocol">
+  <template match="iana:record">
     <call-template name="enum">
       <with-param name="id">
 	<choose>

@@ -16,8 +16,7 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:description = 'Unassigned' or
-                    starts-with(iana:description, 'Reserved'))]"
-	    mode="opcode"/>
+                    starts-with(iana:description, 'Reserved'))]"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -54,7 +53,7 @@
     </element>
   </template>
 
-  <template match="iana:record" mode="opcode">
+  <template match="iana:record">
     <call-template name="enum">
       <with-param name="id">
 	<choose>
@@ -78,7 +77,8 @@
 	<attribute name="name">enumeration</attribute>
 	<apply-templates
 	    select="iana:record[not(iana:name = 'Unassigned' or
-		    starts-with(iana:name, 'Reserved'))]"/>
+		    starts-with(iana:name, 'Reserved'))]"
+	    mode="enum"/>
       </element>
       <element name="yin:description">
 	<element name="yin:text">
@@ -119,7 +119,7 @@
     </element>
   </template>
 
-  <template match="iana:record[iana:value = 9]">
+  <template match="iana:record[iana:value = 9]" mode="enum">
     <if test="preceding-sibling::iana:record[iana:value = 9]">
       <call-template name="enum">
 	<with-param name="id">NotAuth</with-param>
@@ -148,7 +148,7 @@
     </if>
   </template>
 
-  <template match="iana:record[iana:value = 16]">
+  <template match="iana:record[iana:value = 16]" mode="enum">
     <if test="preceding-sibling::iana:record[iana:value = 16]">
       <call-template name="enum">
 	<with-param name="id">BADVERS-BADSIG</with-param>
