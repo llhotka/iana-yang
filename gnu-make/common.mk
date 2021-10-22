@@ -1,5 +1,6 @@
 MODULE ?= $(shell basename `pwd`)
 ytxslt = ../../../yin-tools/xslt
+PYANG_OPTS ?= --path=.:../../../yang-modules --strict
 
 .PHONY: all clean orgrow refresh validate $(MODULE).yinx
 
@@ -18,7 +19,7 @@ $(MODULE).yinx:
 	    xsltproc --output $@  $(ytxslt)/yin2yang.xsl -
 
 validate: $(MODULE).yang
-	@pyang --strict $<
+	pyang $(PYANG_OPTS) $<
 
 orgrow:
 	@curl --silent $(basename $(IANA_URL)).xml | \
