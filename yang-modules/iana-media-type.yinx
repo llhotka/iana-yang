@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module name="iana-media-types"
+        xmlns="urn:ietf:params:xml:ns:yang:yin:1"
+        xmlns:ianamt="urn:ietf:params:xml:ns:yang:iana-media-types"
+        xmlns:html="http://www.w3.org/1999/xhtml">
+  <namespace uri="urn:ietf:params:xml:ns:yang:iana-media-types"/>
+  <prefix value="ianamt"/>
+  <yang-version value="1.1"/>
+  <organization>
+    <text>Internet Assigned Numbers Authority (IANA)</text>
+  </organization>
+  <contact>
+    <text>
+      <html:p>Internet Assigned Numbers Authority</html:p>
+      <html:p>ICANN<html:br/>12025 Waterfront Drive, Suite
+      300<html:br/>Los Angeles, CA 90094<html:br/></html:p>
+      <html:p>Tel: +1 424 254 5300</html:p>
+      <html:p>&lt;mailto:iana@iana.org&gt;</html:p>
+    </text>
+  </contact>
+  <description>
+    <text>
+      <html:p>This module defines the root of the tree of media type
+      identities. It is intended to be imported by YANG modules
+      defining identities for individual top-level media types and
+      their subtypes.</html:p>
+    </text>
+  </description>
+  <reference>
+    <text>
+      <html:p>
+	Media Types (https://www.iana.org/assignments/media-types/
+      </html:p>
+    </text>
+  </reference>
+  <revision date="2021-10-15">
+    <description>
+      <text>Initial revision.</text>
+    </description>
+  </revision>
+
+  <!-- Identities -->
+  <identity name="media-type">
+    <description>
+      <text>
+	Base identity from which specific media types are derived.
+      </text>
+    </description>
+  </identity>
+</module>
