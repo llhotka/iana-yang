@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<module name="iana-media-types"
+<module name="iana-media-type"
         xmlns="urn:ietf:params:xml:ns:yang:yin:1"
-        xmlns:ianamt="urn:ietf:params:xml:ns:yang:iana-media-types"
+        xmlns:ianamt="urn:ietf:params:xml:ns:yang:iana-media-type"
         xmlns:html="http://www.w3.org/1999/xhtml">
-  <namespace uri="urn:ietf:params:xml:ns:yang:iana-media-types"/>
+  <namespace uri="urn:ietf:params:xml:ns:yang:iana-media-type"/>
   <prefix value="ianamt"/>
   <yang-version value="1.1"/>
   <organization>
