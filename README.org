@@ -33,6 +33,10 @@ The tables in the following subsections show YANG modules that can be generated 
 |----------------------+----------------------|
 | [[file:registries/tsig-algorithm-names/iana-tsig-algorithms][iana-tsig-algorithms]] | [[https://www.iana.org/assignments/tsig-algorithm-names/tsig-algorithm-names.xhtml#tsig-algorithm-names-1][TSIG Algorithm Names]] |
 
+*** Structured Syntax Suffixes
+| YANG module                   | IANA registries            |
+|-------------------------------+----------------------------|
+| [[file:registries/media-type-structured-suffix/iana-structured-syntax-suffix][iana-structured-syntax-suffix]] | [[https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml#structured-syntax-suffix][Structured Syntax Suffixes]] |
 ** Cloning the project
 Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is used as [[https://git-scm.com/book/en/v2/Git-Tools-Submodules][git submodule]]. In order to get the submodule initialized and cloned, this project should be cloned like so:
 #+begin_src shell
