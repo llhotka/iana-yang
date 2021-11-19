@@ -125,7 +125,7 @@
   </template>
 
   <!-- This template is intended for YANG statements to be inserted
-       before the output registry processing; may be overriden. -->
+       before the output of registry processing; may be overriden. -->
   <template name="prolog">
     <comment>Typedefs</comment>
   </template>

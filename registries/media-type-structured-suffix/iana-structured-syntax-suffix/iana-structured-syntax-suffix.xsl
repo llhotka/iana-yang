@@ -9,34 +9,34 @@
   <output method="xml" encoding="utf-8"/>
   <strip-space elements="*"/>
 
-  <!-- Replace REGISTRY-ID with the the value specified in the 'id'
-       attribute of the <registry> element. -->
+  <template name="prolog">
+    <comment>Identities</comment>
+  </template>
+
   <template match="iana:registry[@id='structured-syntax-suffix']">
-    <element name="yin:typedef">
-      <attribute name="name">structured-syntax-suffix</attribute>
-      <element name="yin:type">
-	<attribute name="name">enumeration</attribute>
-	<apply-templates select="iana:record"/>
-      </element>
-      <element name="yin:description">
-	<element name="yin:text">
-          This enumeration type defines structured syntax suffixes for
-	  media types.
+    <call-template name="identity">
+      <with-param name="id">structured-syntax-suffix</with-param>
+      <with-param name="description">
+	<element name="html:p">
+          Base identity from which all identities representing
+          structured syntax suffixes for media types are derived.
 	</element>
-      </element>
-      <element name="yin:reference">
-	<element name="yin:text">
-              RFC 6836: Media Type Specifications and Registration
-	      Procedures
+      </with-param>
+      <with-param name="refs">
+	<element name="html:p">
+          RFC 6836: Media Type Specifications and Registration
+	  Procedures
 	</element>
-      </element>
-    </element>
+      </with-param>
+    </call-template>
+    <apply-templates select="iana:record"/>
   </template>
 
   <template match="iana:record">
-    <call-template name="enum">
-      <with-param name="id" select="normalize-space(iana:suffix)"/>
-      <with-param name="value"/>
+    <call-template name="identity">
+      <with-param name="id"
+		  select="substring(normalize-space(iana:suffix), 2)"/>
+      <with-param name="base">structured-syntax-suffix</with-param>
       <with-param name="description">
 	<element name="html:p">
 	  <value-of select="iana:name"/>
