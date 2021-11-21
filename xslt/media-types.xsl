@@ -16,6 +16,12 @@
 	<attribute name="value">ianamt</attribute>
       </element>
     </element>
+    <element name="yin:import">
+      <attribute name="module">iana-structured-syntax-suffix</attribute>
+      <element name="prefix">
+	<attribute name="value">sss</attribute>
+      </element>
+    </element>
     <comment>Identities</comment>
   </template>
   
