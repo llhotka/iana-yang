@@ -241,6 +241,7 @@
   <template name="identity">
     <param name="id" select="normalize-space(iana:name)"/>
     <param name="base"/>
+    <param name="base2"/>
     <param name="description"/>
     <param name="refs">
       <call-template name="process-xrefs"/>
@@ -255,6 +256,13 @@
 	<element name="yin:base">
 	  <attribute name="name">
 	    <value-of select="$base"/>
+	  </attribute>
+	</element>
+      </if>
+      <if test="normalize-space($base2)">
+	<element name="yin:base">
+	  <attribute name="name">
+	    <value-of select="$base2"/>
 	  </attribute>
 	</element>
       </if>
