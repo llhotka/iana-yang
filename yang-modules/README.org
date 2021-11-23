@@ -1,0 +1,3 @@
+This directory is intended for additional YANG modules that may need to be imported for validating certain registry modules.
+
+When validating via =make validate=, the Makefile takes care about adding this directory to /pyang/'s path.
