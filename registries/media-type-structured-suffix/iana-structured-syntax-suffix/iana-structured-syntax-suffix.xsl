@@ -23,7 +23,7 @@
 	</element>
 	<element name="yin:reference">
 	  <element name="yin:text">
-            RFC 6836: Media Type Specifications and Registration
+            RFC 6838: Media Type Specifications and Registration
 	    Procedures
 	  </element>
 	</element>
