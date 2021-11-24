@@ -12,7 +12,7 @@ Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is 
 The essential prerequisites for generating the modules are [[https://curl.se][curl]] and [[http://xmlsoft.org/XSLT/xsltproc2.html][xsltproc]]. In addition, [[https://www.gnu.org/software/make][GNU Make]] is needed, as well as a few command-line utilities that are included in Linux, MacOS and other Unix-like operating systems.
 
 ** Available registries
-The tables in the following subsections show YANG modules that can be generated using this project from corresponding to IANA registries.
+The tables in the following subsections show YANG modules that can be generated using this project from the corresponding IANA registries.
 *** Protocol Numbers
 
 | YANG module             | IANA registries                    |
