@@ -64,7 +64,8 @@
 	  <text>Copyright (c) </text>
 	  <value-of select="substring-before(/iana:registry/iana:updated,
 			    '-')"/>
-	  <text> IETF Trust. All rights reserved.</text>
+	  <text> IETF Trust and the persons identified as authors of
+	  the code.  All rights reserved.</text>
 	</element>
 	<element name="html:p">
 	  Redistribution and use in source and binary forms, with or
