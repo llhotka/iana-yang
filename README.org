@@ -53,3 +53,8 @@ The tables in the following subsections show YANG modules that can be generated 
 | YANG module                   | IANA registries            |
 |-------------------------------+----------------------------|
 | [[file:registries/media-type-structured-suffix/iana-structured-syntax-suffix][iana-structured-syntax-suffix]] | [[https://www.iana.org/assignments/media-type-structured-suffix/media-type-structured-suffix.xhtml#structured-syntax-suffix][Structured Syntax Suffixes]] |
+
+*** Transport Layer Security (TLS) Parameters
+| YANG module                         | IANA registries                       |
+|-------------------------------------+---------------------------------------|
+| [[file:registries/tls-parameters/iana-tls-client-certificate-type-id][iana-tls-client-certificate-type-id]] | [[https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-2][TLS ClientCertificateType Identifiers]] |
