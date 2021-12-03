@@ -25,6 +25,7 @@ $(MODULE).yinx: $(xmlfile)
 	xsltproc --stringparam module $(MODULE) \
 	    --stringparam prefix $(PREFIX) \
 	    --stringparam iana-url "$(dir $(IANA_URL))" \
+	    --stringparam xml-url "$(xmlurl)" \
 	    --stringparam regid "$(REGISTRY_ID)" \
 	    --output $@ $(MODULE).xsl $<
 

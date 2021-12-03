@@ -7,10 +7,11 @@
     version="1.0">
 
   <!-- Parameters passed from the Makefile -->
-  <param name="module"/>
-  <param name="prefix"/>
-  <param name="iana-url"/>
-  <param name="regid"/>
+  <param name="module"/>	<!-- name of the YANG module -->
+  <param name="prefix"/>	<!-- YANG namespace prefix -->
+  <param name="iana-url"/>	<!-- URL of the IANA registry page -->
+  <param name="xml-url"/>	<!-- URL of the XML representation -->
+  <param name="regid"/>		<!-- space-sep. list of registry IDs -->
 
   <!-- Prefix of the namespace URI -->
   <param name="base-uri">urn:ietf:params:xml:ns:yang:</param>
@@ -119,7 +120,13 @@
       </attribute>
       <element name="yin:description">
 	<element name="yin:text">
-	  <text>Current revision as of the revision date.</text>
+	  <text>Current revision as of the revision date specified in
+	  the XML representation of the registry page.</text>
+	</element>
+      </element>
+      <element name="yin:reference">
+	<element name="yin:text">
+	  <value-of select="$xml-url"/>
 	</element>
       </element>
     </element>
