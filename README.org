@@ -1,4 +1,10 @@
-* iana-yang
+* iana-yang                                                             :TOC:
+  - [[#introduction][Introduction]]
+  - [[#cloning-the-project][Cloning the project]]
+  - [[#prerequisites][Prerequisites]]
+  - [[#available-registries][Available registries]]
+
+** Introduction
 This project contains XSLT stylesheets and other tools for translating IANA registries to YANG modules.
 
 YANG modules can be generated from the up-to-date revisions of all registries by running =make= in the top-level directory. Alternatively, each module can be generated from the corresponding directory (linked from the table below).
