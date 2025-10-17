@@ -32,7 +32,6 @@
 	  <text>12025 Waterfront Drive, Suite 300</text>
 	  <element name="html:br"/>
 	  <text>Los Angeles, CA 90094</text>
-	  <element name="html:br"/>
 	</element>
 	<element name="html:p">
 	  <text>Tel: +1 424 254 5300</text>
