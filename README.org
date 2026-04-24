@@ -50,6 +50,13 @@ The tables in the following subsections show YANG modules that can be generated 
 | [[file:registries/media-types/iana-media-type][iana-media-type]] | [[https://www.iana.org/assignments/media-types/media-types.xhtml#application][application]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#audio][audio]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#font][font]], |
 |                 | [[https://www.iana.org/assignments/media-types/media-types.xhtml#image][image]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#message][message]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#model][model]],    |
 |                 | [[https://www.iana.org/assignments/media-types/media-types.xhtml#multipart][multipart]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#text][text]], [[https://www.iana.org/assignments/media-types/media-types.xhtml#video][video]]    |
+
+*** QUIC
+| YANG module         | IANA registries           |
+|---------------------+---------------------------|
+| [[file:registries/quic/iana-quic-versions][iana-quic-versions]]  | [[https://www.iana.org/assignments/quic/quic.xhtml#quic-versions][QUIC Versions]]             |
+| [[file:registries/quic/iana-quic-transport][iana-quic-transport]] | [[https://www.iana.org/assignments/quic/quic.xhtml#quic-transport][QUIC Transport Parameters]] |
+
 *** Secret Key Transaction Authentication for DNS (TSIG) Algorithm Names
 | YANG module          | IANA registries      |
 |----------------------+----------------------|
