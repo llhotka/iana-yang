@@ -15,7 +15,7 @@ Another GitHub project, [[https://github.com/llhotka/yin-tools][yin-tools]], is 
   git clone git@github.com:llhotka/iana-yang.git --recurse-submodules
 #+end_src
 ** Prerequisites
-The essential prerequisites for generating the modules are [[https://curl.se][curl]] and [[http://xmlsoft.org/XSLT/xsltproc2.html][xsltproc]]. In addition, [[https://www.gnu.org/software/make][GNU Make]] is needed, as well as a few command-line utilities that are included in Linux, MacOS and other Unix-like operating systems.
+The essential prerequisites for generating the modules are [[https://curl.se][curl]] and [[http://xmlsoft.org/XSLT/xsltproc2.html][xsltproc]]. In addition, [[https://www.gnu.org/software/make][GNU Make]] and [[https://www.gnu.org/software/grep][GNU Grep]] are needed, as well as a few other command-line utilities that are included in Linux, MacOS and other Unix-like operating systems.
 
 ** Available registries
 The tables in the following subsections show YANG modules that can be generated using this project from the corresponding IANA registries.

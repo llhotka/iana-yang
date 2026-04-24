@@ -1,6 +1,7 @@
 MODULE ?= $(shell basename `pwd`)
 CATEGORY ?= $(shell basename $(dir $(shell pwd)))
 PYANG_OPTS ?= --path=.:../../../yang-modules --strict
+GREP = grep			# name or path of GNU grep binary 
 ytxslt = ../../../yin-tools/xslt
 xmlurl = $(basename $(IANA_URL)).xml
 xmlfile = ../$(CATEGORY).xml
@@ -11,7 +12,7 @@ all: update $(MODULE).yang
 
 update:
 	@lastmod=`curl --silent --head $(xmlurl) \
-	    | grep -Po '(?<=^Last-Modified:\s).*$$'`; \
+	    | $(GREP) -Po '(?<=^Last-Modified:\s).*$$'`; \
 	tstamp=`date -d "$${lastmod}" +%s`; \
 	if [[ -f $(xmlfile) && $${tstamp} -le `stat -c '%Y' $(xmlfile)` ]]; \
 	then \
